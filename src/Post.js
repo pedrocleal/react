@@ -1,9 +1,11 @@
 import React from 'react';
 
-function Post({ title, desc, likes }) {
+function Post({ id, title, desc, likes, onRemove, onRead, read }) {
   return (
     <article>
-      <strong>{title}</strong>
+      {read ? <strong><s>{title}</s></strong> : <strong>{title}</strong>}
+      <button onClick={() => onRemove(id)}>Remover</button> 
+      <button onClick={() => onRead(id)}>Marcar como lido</button>
       <br/>
       <small>{desc}</small>
       <br/>
