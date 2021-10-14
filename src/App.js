@@ -16,7 +16,7 @@ const initialPosts = [
     title: '2º POST',
     desc: 'Descrição do 2º post',
     likes: 2,
-    read: false,
+    read: true,
   },
   {
     id: 3,
@@ -55,7 +55,25 @@ function App() {
   }
 
   function handleReadPost(postId) {
-    console.log(`${postId} foi marcado como lido`);
+    // const readPost = posts.map(post => {
+    //   if (post.id === postId) {
+    //     return {
+    //       ...post,
+    //       read: true
+    //     }
+    //   } 
+    //   return post
+    // });
+
+    setPosts((prevState) => prevState.map(post => {
+      if (post.id === postId) {
+        return {
+          ...post,
+          read: true
+        }
+      }
+      return post
+    }));
   }
 
   return (
@@ -76,6 +94,7 @@ function App() {
           key={post.id}
           title={post.title}
           desc={post.desc}
+          read={post.read}
         />
       ))}
     </>

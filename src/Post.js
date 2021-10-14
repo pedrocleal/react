@@ -11,7 +11,6 @@ function Post({ id, title, desc, likes, onRemove, onRead, read }) {
       <br/>
       LIKES = {likes}
       <br/><br/>
-
     </article>
   )
 }
